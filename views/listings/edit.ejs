@@ -1,5 +1,5 @@
 <% layout('/layouts/boilerplate') %>
-
+<body>
 <div class="row mt-3">
   <div class="col-8 offset-2">
     <h1>Edit Your Info</h1>
@@ -15,7 +15,7 @@
         <input
           required
           class="form-control"
-          type="text"
+          type="file"
           name="listing[title]"
           value="<%= listing.title %>"
         />
@@ -111,3 +111,4 @@
     });
   })();
 </script> -->
+</body>
