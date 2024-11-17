@@ -1,10 +1,35 @@
+<<<<<<< HEAD
 body{
     font-family: "Plus Jakarta Sans", sans-serif !important;
   
+=======
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
+/* New Page */
+.add-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+/* Edid Page */
+.edit-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+>>>>>>> 3389d1f (Initial commit after reinitialization)
 }
 
 /* Navbar Section */
 .navbar {
+<<<<<<< HEAD
   height: 5rem;
   background-color: white;
 }
@@ -19,6 +44,18 @@ body{
   color: #fe424d !important;
   font-size: 2rem;
 }
+=======
+  height: 4rem;
+  background-color: white;
+}
+
+.navbar-brand i, 
+.navbar-brand b {
+  color: #fe424d;
+  font-size: 1.7rem;
+}
+
+>>>>>>> 3389d1f (Initial commit after reinitialization)
 .nav-link {
   color: #222222 !important;
 }
@@ -30,11 +67,19 @@ body{
 }
 
 .f-info-links a:hover {
+<<<<<<< HEAD
   text-decoration: underline;
 }
 
 .f-info-links, 
 .f-info-socials{ 
+=======
+  text-decoration: underline ; 
+}
+
+.f-info-links, 
+.f-info-socials{
+>>>>>>> 3389d1f (Initial commit after reinitialization)
   width: 100%;
   text-align: center;
   justify-content: center;
@@ -53,6 +98,7 @@ body{
   align-content: center;
 }
 
+<<<<<<< HEAD
 
 .f-info{
   text-align: center;
@@ -132,9 +178,90 @@ footer {
   display: flex;
   padding-top: 2rem;
   padding-bottom: 2rem;
+=======
+.f-info {
+  display: flex;
+  height: 8rem;
+  background: 
+    radial-gradient(calc(1.28*25px + 9.38px/2) at left 50% bottom calc(-.8*25px),#d2d2d2 calc(100% - 9.38px),#cbcbcb calc(101% - 9.38px) 100%,#0000 101%) calc(2*25px) calc(-1*calc(1.5*25px + 9.38px)),
+    radial-gradient(calc(1.28*25px + 9.38px/2) at left 50% bottom calc(-.8*25px),#dddddd calc(100% - 9.38px),#cbcbcb calc(101% - 9.38px) 100%,#0000 101%) calc(-1*25px) calc(calc(1.5*25px + 9.38px)/-2),
+    radial-gradient(calc(1.28*25px + 9.38px/2) at left 50% top    calc(-.8*25px),#dddddd calc(100% - 9.38px),#cbcbcb calc(101% - 9.38px) 100%,#0000 101%) 0 calc(1.5*25px + 9.38px),
+    radial-gradient(calc(1.28*25px + 9.38px/2) at left 50% top    calc(-.8*25px),#d2d2d2 calc(100% - 9.38px),#cbcbcb calc(101% - 9.38px) 100%,#0000 101%) 25px calc(calc(1.5*25px + 9.38px)/ 2),
+    linear-gradient(#d2d2d2 50%,#dddddd 0);
+  background-size: calc(4*25px) calc(1.5*25px + 9.38px);
+  border-top: 1px solid rgb(67, 67, 67);
+  background-color: #ebebeb ;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+  text-align: center;
+}
+
+/* Cards */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text {
+  font-weight: 400;
+}
+
+.list-link {
+  text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+/* Show Page */
+.show-img {
+  height: 40vh;
+}
+
+.btns {
+  display: flex;
+>>>>>>> 3389d1f (Initial commit after reinitialization)
 }
 
 .show-card {
   padding-left: 0;
   padding-right: 0;
 }
+<<<<<<< HEAD
+=======
+
+/* Review Section */
+.review-card {
+  border: none !important;
+  background-image: 
+  radial-gradient(circle at 100% 100%, transparent 11px, #d60000 11px, #d60000 13px, transparent 13px), 
+  linear-gradient(to right, #d60000, #0025fa), 
+  radial-gradient(circle at 0% 100%, transparent 11px, #0025fa 11px, #0025fa 13px, transparent 13px), 
+  linear-gradient(to bottom, #0025fa, #0025fa), 
+  radial-gradient(circle at 0% 0%, transparent 11px, #0025fa 11px, #0025fa 13px, transparent 13px), 
+  linear-gradient(to left, #0025fa, #ff0000), 
+  radial-gradient(circle at 100% 0%, transparent 11px, #ff0000 11px, #ff0000 13px, transparent 13px), 
+  linear-gradient(to top, #ff0000, #d60000);
+  background-size: 13px 13px, calc(100% - 26px) 2px, 13px 13px, 2px calc(100% - 26px);
+  background-position: top left,top center,top right,center right, bottom right,bottom center,bottom left,center left;
+  background-repeat: no-repeat;
+}
+>>>>>>> 3389d1f (Initial commit after reinitialization)
