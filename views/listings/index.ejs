@@ -1,6 +1,6 @@
 <% layout("/layouts/boilerplate")-%>
 
-<style>
+<!-- <style>
   #filters {
     display: flex;
     flex-wrap: nowrap;
@@ -31,7 +31,73 @@
     align-items: center;
     margin-left: 6rem;
   }
+</style> -->
+<style>
+  #filters {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping to the next line */
+    align-items: center;
+    gap: 1rem; /* Space between items */
+    padding: 0.5rem; /* Add some padding for aesthetics */
+    scrollbar-width: thin; /* For custom scrollbar appearance (Firefox) */
+  }
+
+  /* Hide scrollbar for cleaner appearance */
+  #filters::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .filter {
+    text-align: center;
+    flex: 0 0 auto; /* Prevent resizing or wrapping */
+    margin: 0.5rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+  }
+
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+    transform: scale(1.1); /* Slight zoom effect */
+  }
+
+  .filter div i {
+    font-size: 2rem; /* Default size */
+    color: #555; /* Icon color */
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .filter:hover div i {
+    color: #000; /* Darker color on hover */
+  }
+
+  .filter p {
+    font-size: 0.8rem; /* Text size */
+    margin-top: 0.3rem; /* Space below icon */
+    color: #333;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .filter div i {
+      font-size: 1.8rem; /* Smaller icons for tablets */
+    }
+    .filter p {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .filter div i {
+      font-size: 1.5rem; /* Smaller icons for phones */
+    }
+    .filter p {
+      font-size: 0.6rem; /* Adjust text size */
+    }
+  }
 </style>
+
 <div id="filters">
   <div class="filter">
     <div><i class="fa-solid fa-fire"></i></div>
