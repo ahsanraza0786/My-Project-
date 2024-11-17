@@ -1,27 +1,80 @@
 <% layout("/layouts/boilerplate")-%>
 
-<!-- <style>
+<style>
   #filters {
     display: flex;
-    flex-wrap: nowrap;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping to the next line */
     align-items: center;
+    gap: 1rem; /* Space between items */
+    padding: 0.5rem; /* Add some padding for aesthetics */
+    scrollbar-width: thin; /* For custom scrollbar appearance (Firefox) */
   }
+
+  /* Hide scrollbar for cleaner appearance */
+  #filters::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
   .filter {
     text-align: center;
-    margin-right: 1rem;
-    margin-top: 2rem;
+    flex: 0 0 auto; /* Prevent resizing or wrapping */
+    margin: 0.5rem;
     opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
   }
+
   .filter:hover {
     opacity: 1;
     cursor: pointer;
+    transform: scale(1.1); /* Slight zoom effect */
   }
+
+  .filter div i {
+    font-size: 2rem; /* Default size for desktop */
+    color: #555; /* Icon color */
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .filter:hover div i {
+    color: #000; /* Darker color on hover */
+  }
+
   .filter p {
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Text size */
+    margin-top: 0.3rem; /* Space below icon */
+    color: #333;
   }
-  .tax-info {
-    display: none;
+
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
+    .filter div i {
+      font-size: 1.8rem; /* Slightly smaller icons for tablets */
+    }
+    .filter p {
+      font-size: 0.75rem;
+    }
   }
+
+  @media (max-width: 768px) {
+    .filter div i {
+      font-size: 1.5rem; /* Smaller icons for tablets */
+    }
+    .filter p {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .filter div i {
+      font-size: 1.3rem; /* Even smaller icons for phones */
+    }
+    .filter p {
+      font-size: 0.6rem; /* Adjust text size */
+    }
+  }
+
+  /* Some toggle changes */
   .tax-toggle {
     border: 1px solid black;
     border-radius: 1rem;
@@ -29,97 +82,15 @@
     padding: 1rem;
     display: flex;
     align-items: center;
-    margin-left: 6rem;
+    margin-left: auto; /* Aligns the tax toggle to the right */
+    margin-right: 1rem; /* Optional: adds spacing from the right edge */
   }
-</style> -->
-<style>
- #filters {
-  display: flex;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Prevent wrapping to the next line */
-  align-items: center;
-  gap: 1rem; /* Space between items */
-  padding: 0.5rem; /* Add some padding for aesthetics */
-  scrollbar-width: thin; /* For custom scrollbar appearance (Firefox) */
-}
 
-/* Hide scrollbar for cleaner appearance */
-#filters::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
-
-.filter {
-  text-align: center;
-  flex: 0 0 auto; /* Prevent resizing or wrapping */
-  margin: 0.5rem;
-  opacity: 0.7;
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
-}
-
-.filter:hover {
-  opacity: 1;
-  cursor: pointer;
-  transform: scale(1.1); /* Slight zoom effect */
-}
-
-.filter div i {
-  font-size: 2rem; /* Default size for desktop */
-  color: #555; /* Icon color */
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.filter:hover div i {
-  color: #000; /* Darker color on hover */
-}
-
-.filter p {
-  font-size: 0.8rem; /* Text size */
-  margin-top: 0.3rem; /* Space below icon */
-  color: #333;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-  .filter div i {
-    font-size: 1.8rem; /* Slightly smaller icons for tablets */
+  .tax-info {
+    display: none;
   }
-  .filter p {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .filter div i {
-    font-size: 1.5rem; /* Smaller icons for tablets */
-  }
-  .filter p {
-    font-size: 0.7rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .filter div i {
-    font-size: 1.3rem; /* Even smaller icons for phones */
-  }
-  .filter p {
-    font-size: 0.6rem; /* Adjust text size */
-  }
-}
-
-/* Some toggle changes */
-.tax-toggle {
-  border: 1px solid black;
-  border-radius: 1rem;
-  height: 3.25rem;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  margin-left: auto; /* Aligns the tax toggle to the right */
-  margin-right: 1rem; /* Optional: adds spacing from the right edge */
-}
-
 </style>
-// this changes make to responsive 
+
 <div id="filters">
   <div class="filter">
     <div><i class="fa-solid fa-fire"></i></div>
@@ -178,14 +149,15 @@
     </div>
   </div>
 </div>
-<div class="row row-cols-lg-3 row-cols-md-2 row-colssm-1 mt-3">
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
   <% for(let listing of allListings){%>
   <a href="listings/<%=listing._id%>" class="listing-link">
     <div class="card col listing-card">
       <img
         src="<%=listing.image.url%>"
         class="card-img-top"
-        alt="listing_iamge"
+        alt="listing_image"
         style="height: 20rem"
       />
       <div class="card-img-overlay"></div>
@@ -193,8 +165,7 @@
         <p>
           <b><%= listing.title %></b>
           <br />
-          <%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> /
-          night
+          <%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> / night
           <i class="tax-info">&nbsp;&nbsp;+18%GST</i>
         </p>
       </div>
